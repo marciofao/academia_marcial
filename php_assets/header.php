@@ -18,9 +18,10 @@ require_once 'php_assets/header.php';
  <head>
  	<meta charset="utf-8">
  	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
- 	<title><?php echo 	$title ?> - Questionário Info</title>
+ 	<title><?php echo 	$title ?> - Instituto Hwarang</title>
  	<meta name="description" content="curso de bootstrap 3">
  	<meta name="viewport" content="width=device-width, initial-scale=1">
+ 	<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
  	<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
  	<style>	
  		#freewha, frame, iframe{
@@ -45,11 +46,12 @@ require_once 'php_assets/header.php';
  			<p class="skip"><a href="#maincontent" tabindex="1">Pular navegação e ir direto para o conteúdo</a></p>
  			<div class="btn-toolbar">
  				<div class="btn-group-lg btn-group">
- 					<a href="nova_avaliacao.php" class="btn btn-primary">Nova Avaliação</a>
- 					<a href="gerencia_perguntas.php" class="btn btn-primary ">Gerencia Perguntas</a>
+ 				<a href="inicio.php" class="btn btn-primary">Início</a>
  					<a href="edita_usuario.php" class="btn btn-primary">Edita Usuário</a>
- 					<a href="novo_usuario.php" class="btn btn-primary ">Novo Usuário</a>
- 					<a href="ver_registros.php" class="btn btn-primary ">Ver Registros</a>
+ 					<?php if ($_SESSION['graduacao_cod']>=11): //se for faixa preta?>
+ 						<a href="novo_usuario.php" class="btn btn-primary ">Novo Membro</a>
+ 						<a href="novo_curriculo.php" class="btn btn-primary ">Nova Faixa</a>
+ 					<?php endif ?>
  					<a href="php_assets/sair.php" class="btn btn-primary ">Sair</a>
  				</div><!-- /.btn-group-lg btn-group -->
  			</div><!-- /.btn-toolbar -->
