@@ -44,6 +44,11 @@ if ($_POST) { //ao submeter dados
 //var_dump($datas);
 //die();
 ?>
+<style>	
+	label{
+		display: block;
+	}
+</style>
 
 <div class="row col-md-6">
 
@@ -57,17 +62,44 @@ if ($_POST) { //ao submeter dados
 				<option value="">...</option>
 				<option value="0">0 - Branca</option>
 				<?php 	for ($i=1; $i < 10; $i++) { ?>
-						<option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+				<option value="<?php echo $i; ?>"><?php echo $i; ?></option>
 
 				<?php	} ?>
 				<option value="11">11 - Preta 1º dan</option>
 				<?php 	for ($i=12; $i < 20; $i++) { ?>
-						<option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+				<option value="<?php echo $i; ?>"><?php echo $i; ?></option>
 
 				<?php	} ?>
 			</select>
 		</label>
-		<div class="row">
+		<ol type="I">
+			<li>
+				<label class="col-lg-6">Conjunto Técnico
+					<input name="titulo_tecnica" id="nome" type="text" placeholder="Hoshinsool - Defesa Pessoal" class="form-control " required="required"  />
+				</label>
+				<ol>
+					<li>
+						<span class="input_tecnica_wrap">
+							<label class="col-lg-6">Subconjunto
+								<input name="subtitulo_tecnica" id="nome" type="text" placeholder="Pegadas de mesma mão" class="form-control " required="required"  />
+							</label>
+							<label class="col-lg-6">Técnica
+								<input name="descricao" id="nome" type="text" placeholder="Torção Nº1" class="form-control " required="required"  />
+							</label>
+						</span>
+
+					</li>
+				</ol>
+				<div >	
+							<button class="btn btn-sm btn-alert  col-md-1 form-inline add_subconjunto_button"> + Técnica</button>
+							<button class="btn btn-sm btn-alert  col-md-1 form-inline add_subconjunto_button"> + Subconjunto</button>
+						</div><!-- /.row -->
+			</li>
+
+		</ol>
+		
+		
+		<div >
 			<input type="submit" class="btn-primary btn-md  form-control" value="Salvar" />
 
 		</div><!-- /.row -->
