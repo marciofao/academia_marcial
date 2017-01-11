@@ -60,12 +60,7 @@ if ($_POST) { //ao submeter dados
 </head>
 <body>
 
-<style>	
-	label{
-		display: block;
-	}
 
-</style>
 
 <h3>Nova Faixa</h3>
 	<form action="" method="post">

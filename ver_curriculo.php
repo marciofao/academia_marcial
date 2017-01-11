@@ -33,7 +33,7 @@ $videos=$database->select('videos', "*",["cod_curriculo" => $_GET["c"]]);
 		</a>
 		<?php if ($_SESSION["graduacao_cod"]>10): //SE FOR PRETA OU SUPERIOR?>
 		<div>
-			<a href="deleta_video.php?c=<?php echo 	$video['cod_video'] ?>"  class="btn-warning btn-md form-control col-sm-1 col-md-3 tac" >Remover Vídeo</a>
+			<a href="apagar_video.php?c=<?php echo 	$video['cod_video'] ?>&cc=<?php echo $curriculo[0]['cod_curriculo']; ?>"  class="btn-warning btn-md form-control col-sm-1 col-md-3 tac" >Remover Vídeo</a>
 		</div>
 	<?php endif ?>
 		<br />	
@@ -46,7 +46,7 @@ $videos=$database->select('videos', "*",["cod_curriculo" => $_GET["c"]]);
 <?php endif ?>
 <?php if ($_SESSION["graduacao_cod"]>10): //SE FOR PRETA OU SUPERIOR?>
 		<div>
-			<a href="adiciona_video.php?c=<?php echo 	$_GET['c'] ?>"  class="btn-primary btn-md form-control col-sm-1 col-md-3 tac" >Adicionar Vídeo</a>
+			<a href="novo_video.php?c=<?php echo 	$_GET['c'] ?>"  class="btn-primary btn-md form-control col-sm-1 col-md-3 tac" >Adicionar Vídeo</a>
 		</div>
 	<?php endif ?>
 

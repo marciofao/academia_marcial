@@ -11,7 +11,7 @@ if ($_POST) {
 	}else{
 		$database->insert('usuarios', [
 			'usuario' => $_POST['usuario'],
-			md5('senha' => $_POST['senha'])
+			'senha' => md5($_POST['senha'])
 			]);
 
 		//echo "sucesso!";

@@ -51,20 +51,24 @@ if ($_POST) {
 
 
 <h2>Reporte um problema</h2>
-<form action="	" class="form-group form-control">
-	<label>
-		<div>
+<form method="post" >
+	<div>
+		<label>
+		
 			Título
-		</div>
-		<input type="text" name="titulo" required="required" />
+	
+		<input type="text" name="titulo" required="required" class="form-control" />
 	</label>
 	<label>
-		<div>
+		
 			Detalhes
-		</div>
-		<textarea name="detalhes" required="required" cols="30" rows="10"></textarea>
+	
+		<textarea name="detalhes" class="form-control " required="required" cols="30" rows="10"></textarea>
 	</label>
-	<input type="submit" value="enviar" class="btn-primary col-md-6" />
+	</div>
+	<div>
+		<input type="submit" value="enviar" class="btn-primary col-md-6 form-control" />
+	</div>
 </form>
 
 

@@ -32,6 +32,9 @@ require_once 'php_assets/header.php';
  			text-indent:-9999em;
  			width:0;
  		}
+ 		label{
+ 			display: block;
+ 		}
  	</style>
  </head>
  <body>
@@ -46,7 +49,7 @@ require_once 'php_assets/header.php';
  			<p class="skip"><a href="#maincontent" tabindex="1">Pular navegação e ir direto para o conteúdo</a></p>
  			<div class="btn-toolbar">
  				<div class="btn-group-lg btn-group">
- 				<a href="inicio.php" class="btn btn-primary">Início</a>
+ 					<a href="inicio.php" class="btn btn-primary">Início</a>
  					<a href="edita_usuario.php" class="btn btn-primary">Edita Usuário</a>
  					<?php if ($_SESSION['graduacao_cod']>=11): //se for faixa preta?>
  						<a href="novo_usuario.php" class="btn btn-primary ">Novo Membro</a>
@@ -55,6 +58,6 @@ require_once 'php_assets/header.php';
  					<a href="php_assets/sair.php" class="btn btn-primary ">Sair</a>
  				</div><!-- /.btn-group-lg btn-group -->
  			</div><!-- /.btn-toolbar -->
-	</div><!-- /.navbar navbar-default -->
-	</div><!-- /.content -->
-	<div class="content-fluid" id="maincontent">
+ 		</div><!-- /.navbar navbar-default -->
+ 	</div><!-- /.content -->
+ 	<div class="content-fluid" id="maincontent">
