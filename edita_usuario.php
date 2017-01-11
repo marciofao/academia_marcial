@@ -13,12 +13,12 @@ if ($_POST) {
 	}else{ */
 		$database->update('usuarios', [
 		"nome" => $_POST['nome'],
+		"sobrenome" => $_POST['sobrenome'],
 		"email" => $_POST['email'],
 		"usuario" => $_POST['usuario'],
-		"senha" => $_POST['senha'],
-		"email_destino" => $_POST['email_destino'],
-		"envia_copia" => $_POST['envia_copia']
-		],["cod" => $_SESSION["cod"]]);
+		"senha" => md5($_POST['senha']),
+		"email_destino" => $_POST['email_destino']
+		],["cod_usuario" => $_SESSION["cod_usuario"]]);
 
 	//}
 
@@ -29,7 +29,7 @@ if ($_POST) {
 
 //@session_start();
 	//busca dados do usuário na sessão atual
-$data=$database->select('usuarios', "*",["cod" => $_SESSION["cod"]]);
+$data=$database->select('usuarios', "*",["cod_usuario" => $_SESSION["cod"]]);
 
 	#var_dump($data);
 	#die();

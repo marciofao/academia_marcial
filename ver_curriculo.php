@@ -12,6 +12,7 @@ $videos=$database->select('videos', "*",["cod_curriculo" => $_GET["c"]]);
 <?php if ($_SESSION["graduacao_cod"]>10): //SE FOR PRETA OU SUPERIOR?>
 	<div>
 		<a href="edita_curriculo.php?c=<?php echo 	$_GET['c'] ?>"  class="btn-primary btn-md form-control col-sm-1 col-md-3 tac" >Editar Currículo</a>
+		<a href="apagar_curriculo.php?c=<?php echo $_GET['c'] ?>"  class="btn-warning btn-md form-control col-sm-1 col-md-3 tac" >Remover Currículo</a>
 	</div>
 <?php endif ?>
 
@@ -40,14 +41,14 @@ $videos=$database->select('videos', "*",["cod_curriculo" => $_GET["c"]]);
 
 	<?php endforeach ?>
 
-	<?php if ($_SESSION["graduacao_cod"]>10): //SE FOR PRETA OU SUPERIOR?>
+	
+	
+<?php endif ?>
+<?php if ($_SESSION["graduacao_cod"]>10): //SE FOR PRETA OU SUPERIOR?>
 		<div>
 			<a href="adiciona_video.php?c=<?php echo 	$_GET['c'] ?>"  class="btn-primary btn-md form-control col-sm-1 col-md-3 tac" >Adicionar Vídeo</a>
 		</div>
 	<?php endif ?>
-	
-<?php endif ?>
-
 
 <?php
 //die(var_dump($videos));

@@ -6,7 +6,7 @@ require_once 'php_assets/conecta.php';
 if (!$_SESSION["graduacao_cod"]<10){ header("location:inicio.php"); }
 
 if ($_GET) {
-	$database->delete('curriclo', ["cod_curriculo" => $_GET['c']]);
+	$database->delete('videos', ["cod_video" => $_GET['c']]);
 
 }
 

@@ -1,6 +1,7 @@
 <?php 	
 $title="Nova Faixa";
-require_once 'php_assets/header.php';
+ require_once "php_assets/verifica_sessao.php";
+ require_once 'php_assets/conecta.php';
 
 //EXIGE NOME DO AVALIADOR PARA REALIZAR O CADASTRO
 if ($_SESSION['nome']=="") {
@@ -23,7 +24,12 @@ if ($_SESSION['nome']=="") {
 
 if ($_POST) { //ao submeter dados
 	
-	
+	$database->insert('curriculo', [
+			'nome_faixa' => $_POST['nome_faixa'],
+			'graduacao_cod' => $_POST['graduacao_cod'],
+			'texto_curriculo' => $_POST['texto_curriculo']
+			]);
+
 
 	?>
 
@@ -35,8 +41,7 @@ if ($_POST) { //ao submeter dados
 	<?php
 
 	require_once "php_assets/footer.php";
-	
-	//header("location:inicio.php");
+	 
 }
 
 
@@ -44,6 +49,17 @@ if ($_POST) { //ao submeter dados
 //var_dump($datas);
 //die();
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title> <?php echo 	$title ?> </title>
+	<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+ 	<style>	
+</head>
+<body>
+
 <style>	
 	label{
 		display: block;
@@ -51,9 +67,7 @@ if ($_POST) { //ao submeter dados
 
 </style>
 
-<div class="row col-md-6">
-
-	<h3>Nova Faixa</h3>
+<h3>Nova Faixa</h3>
 	<form action="" method="post">
 		<label class="col-lg-6">Nome da faixa
 			<input name="nome_faixa" id="nome" type="text" placeholder="Faixa Branca - 10º gub" class="form-control " required="required"  />
@@ -62,7 +76,7 @@ if ($_POST) { //ao submeter dados
 			<select name="graduacao_cod" class="form-control col-md-6" required="required">
 				<option value="">...</option>
 				<option value="0">0 - Branca</option>
-				<?php 	for ($i=1; $i < 10; $i++) { ?>
+				<?php 	for ($i=1; $i <= 10; $i++) { ?>
 				<option value="<?php echo $i; ?>"><?php echo $i; ?></option>
 
 				<?php	} ?>
@@ -73,53 +87,31 @@ if ($_POST) { //ao submeter dados
 				<?php	} ?>
 			</select>
 		</label>
-		<label class="col-lg-6">Link Video
-			<input name="link_tecnicas" id="nome" type="text" placeholder="youtube.com/..." class="form-control "  />
-		</label>
-		<ol type="I">
-			<li>
-				<label class="col-lg-6">Conjunto Técnico
-					<input name="titulo_tecnica" id="nome" type="text" placeholder="Hoshinsool - Defesa Pessoal" class="form-control " required="required"  />
-				</label>
-				<ol>
-					
-					<span class="input_tecnica_wrap">
-						<label class="col-lg-6">Subconjunto
-							<div class="col-md-8">
-								<input name="subtitulo_tecnica" id="nome" type="text" placeholder="Pegadas de mesma mão" class="form-control form-horizontal inline " required="required"  />
-							</div>
-							<div class="col-md-4">
-								<button class="btn btn-warning form-inline "> - </button>
-							</div>
-							
-						</label>
+		<script src="js/ckeditor/ckeditor.js"></script>
+		<label class="col-lg-6  " >Conteúdo
+			<textarea name="texto_curriculo" id="editor1" rows="10" cols="80">
 
-						<li>
-							<label class="col-lg-6">Técnica
-								<input name="descricao" id="nome" type="text" placeholder="Torção Nº1" class="form-control " required="required"  />
-							</label>
-							<label class="col-lg-6">Video
-								<input name="descricao" id="nome" type="text" placeholder="youtube.com/..." class="form-control " required="required"  />
-							</label>
+			</textarea>
+			
+			<script>
+                // Replace the <textarea id="editor1"> with a CKEditor
+                // instance, using default configuration.
+                CKEDITOR.replace( 'editor1' );
+            </script>
+        </label>
 
-						</li>
-					</span>
-				</ol>
-				<div >	
-					<button class="btn btn-sm btn-alert  col-md-1 form-inline add_subconjunto_button"> + Técnica</button>
-					<button class="btn btn-sm btn-alert  col-md-1 form-inline add_subconjunto_button"> + Subconjunto</button>
-				</div><!-- /.row <-->	</-->
-			</li>
+        <script>
+        	
+        </script>
+        <div >
+        	<input type="submit" class="btn-primary btn-md  form-control" value="Salvar" />
 
-		</ol>
+        </div><!-- /.row -->
+    </form>
 		
-		
-		<div >
-			<input type="submit" class="btn-primary btn-md  form-control" value="Salvar" />
+</body>
+</html>
 
-		</div><!-- /.row -->
-	</form>
 
-</div><!-- /.row -->
 
-<?php 	require_once "php_assets/footer.php"; ?>
+
