@@ -26,6 +26,7 @@ if ($_POST) {
 			$_SESSION["login"]=$data[0]['login'];
 			$_SESSION["nome"]=$data[0]['nome'];
 			$_SESSION["graduacao_cod"]=$data[0]['graduacao_cod'];
+			//GRADUAÇÃO: 0-10: GUBS  11-20: PRETAS
 			//die($_SESSION["graduacao_cod"]);
 			//die($_SESSION['nome']);
 			header("location:inicio.php");

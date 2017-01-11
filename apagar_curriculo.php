@@ -3,7 +3,7 @@
 require_once 'php_assets/conecta.php';
 
 if ($_GET) {
-	$database->delete('perguntas', ["cod" => $_GET['c']]);
+	$database->delete('curriclo', ["cod" => $_GET['c']]);
 
 }
 
