@@ -56,11 +56,9 @@ if ($_POST) { //ao submeter dados
 	<meta charset="UTF-8" />
 	<title> <?php echo 	$title ?> </title>
 	<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
- 	<style>	
+ 	
 </head>
 <body>
-
-
 
 <h3>Nova Faixa</h3>
 	<form action="" method="post">

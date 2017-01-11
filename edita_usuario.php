@@ -15,9 +15,9 @@ if ($_POST) {
 		"nome" => $_POST['nome'],
 		"sobrenome" => $_POST['sobrenome'],
 		"email" => $_POST['email'],
-		"usuario" => $_POST['usuario'],
-		"senha" => md5($_POST['senha']),
-		"email_destino" => $_POST['email_destino']
+		"telefone" => $_POST['telefone'],
+		"login" => $_POST['login'],
+		"senha" => md5($_POST['senha'])
 		],["cod_usuario" => $_SESSION["cod_usuario"]]);
 
 	//}
@@ -29,7 +29,7 @@ if ($_POST) {
 
 //@session_start();
 	//busca dados do usuário na sessão atual
-$data=$database->select('usuarios', "*",["cod_usuario" => $_SESSION["cod"]]);
+$data=$database->select('usuarios', "*",["cod_usuario" => $_SESSION["cod_usuario"]]);
 
 	#var_dump($data);
 	#die();
@@ -41,15 +41,14 @@ $data=$database->select('usuarios', "*",["cod_usuario" => $_SESSION["cod"]]);
 
 		<h3>Editar Usuário</h3>
 		<form action="" class="form-group" method="post">
-			<input type="text" class="form-control" placeholder="Nome completo" required="required" name="nome" value="<?php echo $data[0]['nome'] ?>" />
+			<input type="text" class="form-control" placeholder="Nome" required="required" name="nome" value="<?php echo $data[0]['nome'] ?>" />
+			<input type="text" class="form-control" placeholder="sobrenome" required="required" name="sobrenome" value="<?php echo $data[0]['sobrenome'] ?>" />
 			<input type="email" class="form-control" placeholder="email"  required="required" name="email" value="<?php echo $data[0]['email'] ?>"/>
-			<input type="text" class="form-control" placeholder="nome de usuario"  required="required" name="usuario" value="<?php echo $data[0]['usuario'] ?>"/>
+			<input type="text" class="form-control" placeholder="nome de usuario"  required="required" name="login" value="<?php echo $data[0]['login'] ?>"/>
 			<input type="password" class="form-control" placeholder="senha"  required="required" name="senha" />
-			<input type="email" class="form-control" placeholder="email destino"  required="required" name="email_destino" value="<?php echo $data[0]['email'] ?>" />
-			<div class="checkbox">	<label >
-			<input type="checkbox" name="envia_copia" value="1" <?php if ($data[0]['envia_copia']==1){echo "checked='checked'";} ?>/>
-			Enviar Cópia do questionário para e-mail pessoal
-			</label></div><!-- /.checkbox -->
+			
+			<input type="text" class="form-control" placeholder="telefone"  required="required" name="telefone" value="<?php echo $data[0]['telefone'] ?>"/>
+			
 			<input type="submit" class="btn-md btn-primary form-control" value="Salvar" />
 		</form><!-- /.form-group -->
 		<!--
